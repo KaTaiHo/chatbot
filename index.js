@@ -38,7 +38,7 @@ app.post('/webhook', function(req, res) {
 			}
 			else {
 				let text = event.message.text
-				sendText(sender, "KTBot: " + text.substring(0, 100))
+				sendText(sender, "Bot: " + text.substring(0, 100))
 			}
 		}
 	}

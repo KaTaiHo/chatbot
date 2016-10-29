@@ -16,10 +16,10 @@ app.get('/', function(req, res) {
 	res.send("whats up")
 })
 
-let token = "EAARKjedcdlUBAJWbr213c5WKtW9ZAc7jt29N23DA7caw9UmMaJ18WzrHrrMWQsvNZAURmICZAjRo6RV76zsJy6qrUVXOTbTn1sqSlfLqAT0KBpuFXVEMZAdZBRUZCQwGpg9fMlbs5xipVUBdQHiP0NjjePgvfErgluMXRjtqqpNQZDZD"
+let token = "EAAK33QTXStsBAF8vAt3TsrVsu4gPA1SpOhc2XpbL6c3eoZAMeDXErAcX3NKh6nbU0Ep5uY039ZBYTAUrTEjISZBbGduSlbItSZAoY4JMwDG12w03V4hIbLH820spwWGNpByfgaUjUrLE7MzRffl3MYeIFZB75K126DPtoOB2jxgZDZD"
 
 app.get('/webhook/', function(req, res) {
-	if (req.query['hub.verify_token'] === 'blondiebytes') {
+	if (req.query['hub.verify_token'] === 'ktbot') {
 		res.send(req.query['hub.challenge'])
 	}
 	req.send('Wrong token')

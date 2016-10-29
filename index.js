@@ -31,11 +31,12 @@ app.post('/webhook', function(req, res) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
 
-		if (even.message && event.message.text === "weather") {
-			sendText(sender, "Ka Tai hasn't finished this feature")
-		}
 
 		if (event.message && event.message.text) {
+
+			if (event.message.text === "weather") {
+				sendText(sender, "Ka Tai hasn't finished this feature")
+			}
 			let text = event.message.text
 			sendText(sender, "Text echo: " + text.substring(0, 100))
 		}

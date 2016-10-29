@@ -8,21 +8,25 @@ const app = express()
 
 app.set('port', (process.env.PORT || 5000))
 
+// Allows us to process the data
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // ROUTES
+
 app.get('/', function(req, res) {
-	res.send("whats up")
+	res.send("Hi I am a chatbot")
 })
 
-let token = "EAARKjedcdlUBAJWbr213c5WKtW9ZAc7jt29N23DA7caw9UmMaJ18WzrHrrMWQsvNZAURmICZAjRo6RV76zsJy6qrUVXOTbTn1sqSlfLqAT0KBpuFXVEMZAdZBRUZCQwGpg9fMlbs5xipVUBdQHiP0NjjePgvfErgluMXRjtqqpNQZDZD"
+let token = ""
+
+// Facebook 
 
 app.get('/webhook/', function(req, res) {
-	if (req.query['hub.verify_token'] === 'blondiebytes') {
+	if (req.query['hub.verify_token'] === "blondiebytes") {
 		res.send(req.query['hub.challenge'])
 	}
-	req.send('Wrong token')
+	res.send("Wrong token")
 })
 
 app.post('/webhook', function(req, res) {
@@ -41,8 +45,8 @@ app.post('/webhook', function(req, res) {
 function sendText(sender, text) {
 	let messageData = {text: text}
 	request({
-		url: "https://graph.facebook.com/v2.6/me/messages", 
-		qs: {access_token : token},
+		url: "https://graph.facebook.com/v2.6/me/messages",
+		qs : {access_token: token},
 		method: "POST",
 		json: {
 			recipient: {id: sender},
@@ -60,4 +64,5 @@ function sendText(sender, text) {
 app.listen(app.get('port'), function() {
 	console.log("running: port")
 })
+
 

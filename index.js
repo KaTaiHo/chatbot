@@ -31,7 +31,7 @@ app.post('/webhook', function(req, res) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
 
-		if (even.message && event.message.text == "weather") {
+		if (even.message && event.message.text === "weather") {
 			sendText(sender, "Ka Tai hasn't finished this feature")
 		}
 

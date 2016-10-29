@@ -13,11 +13,11 @@ app.use(bodyParser.json())
 
 // ROUTES
 app.get('/', function(req, res) {
-	res.send("Hi I am a chatbot")
+	res.send("EAARKjedcdlUBAJWbr213c5WKtW9ZAc7jt29N23DA7caw9UmMaJ18WzrHrrMWQsvNZAURmICZAjRo6RV76zsJy6qrUVXOTbTn1sqSlfLqAT0KBpuFXVEMZAdZBRUZCQwGpg9fMlbs5xipVUBdQHiP0NjjePgvfErgluMXRjtqqpNQZDZD")
 })
 
 app.get('/webhook/', function(req, res) {
-	if (req.query['hub.verify_token'] === 'blodiebytes') {
+	if (req.query['hub.verify_token'] === 'blondiebytes') {
 		res.send(req.query['hub.challenge'])
 	}
 	req.send('Wrong token')
